@@ -1,0 +1,57 @@
+BOOTSTRAP MODEL UNCERTAINTY ANALYSIS
+
+Bootstrap repetitions: 10000
+Random seed: 42
+Confidence level: 95%
+Out-of-sample series: 66
+
+Method: paired, fold-stratified percentile bootstrap.
+The same resampled series indices were used for all three models.
+Resampling occurred separately within each temporal test fold, preserving each fold's contribution to the pooled evaluation.
+No model was retrained and no features, hyperparameters, thresholds, or preprocessing were changed.
+
+MODEL 95% CONFIDENCE INTERVALS
+
+Logistic Regression | accuracy | value=0.681818 | 95% CI=[0.560606, 0.787879]
+Logistic Regression | f1 | value=0.720000 | 95% CI=[0.591549, 0.825000]
+Logistic Regression | roc_auc | value=0.781746 | 95% CI=[0.657737, 0.883264]
+Logistic Regression | log_loss | value=0.868689 | 95% CI=[0.563738, 1.212129]
+Logistic Regression | brier_score | value=0.247488 | 95% CI=[0.167232, 0.334223]
+Random Forest | accuracy | value=0.696970 | 95% CI=[0.590530, 0.803030]
+Random Forest | f1 | value=0.750000 | 95% CI=[0.631579, 0.844444]
+Random Forest | roc_auc | value=0.751984 | 95% CI=[0.617592, 0.868812]
+Random Forest | log_loss | value=0.572102 | 95% CI=[0.451016, 0.707260]
+Random Forest | brier_score | value=0.193672 | 95% CI=[0.144110, 0.248789]
+Neural Network | accuracy | value=0.636364 | 95% CI=[0.515152, 0.742424]
+Neural Network | f1 | value=0.727273 | 95% CI=[0.609756, 0.821053]
+Neural Network | roc_auc | value=0.643849 | 95% CI=[0.507231, 0.771560]
+Neural Network | log_loss | value=0.669425 | 95% CI=[0.541379, 0.808870]
+Neural Network | brier_score | value=0.236979 | 95% CI=[0.185811, 0.291213]
+
+PAIRED MODEL COMPARISONS
+
+For every metric below, a positive difference means model_1 performed better.
+For accuracy, F1 and ROC-AUC, higher values are better.
+For log loss and Brier score, lower values are better, so their pairwise differences are direction-adjusted.
+
+Logistic Regression vs Random Forest | accuracy | diff=-0.015152 | 95% CI=[-0.090909, +0.060606] | P(model_1 better)=0.2862 | uncertain / overlaps zero
+Logistic Regression vs Random Forest | f1 | diff=-0.030000 | 95% CI=[-0.110296, +0.042044] | P(model_1 better)=0.2187 | uncertain / overlaps zero
+Logistic Regression vs Random Forest | roc_auc | diff=+0.029762 | 95% CI=[-0.034618, +0.097816] | P(model_1 better)=0.8196 | uncertain / overlaps zero
+Logistic Regression vs Random Forest | log_loss | diff=-0.296588 | 95% CI=[-0.563583, -0.065591] | P(model_1 better)=0.0042 | Random Forest better
+Logistic Regression vs Random Forest | brier_score | diff=-0.053817 | 95% CI=[-0.108810, -0.003923] | P(model_1 better)=0.0172 | Random Forest better
+Logistic Regression vs Neural Network | accuracy | diff=+0.045455 | 95% CI=[-0.106061, +0.196970] | P(model_1 better)=0.6850 | uncertain / overlaps zero
+Logistic Regression vs Neural Network | f1 | diff=-0.007273 | 95% CI=[-0.140098, +0.121957] | P(model_1 better)=0.4503 | uncertain / overlaps zero
+Logistic Regression vs Neural Network | roc_auc | diff=+0.137897 | 95% CI=[-0.011959, +0.284133] | P(model_1 better)=0.9647 | uncertain / overlaps zero
+Logistic Regression vs Neural Network | log_loss | diff=-0.199264 | 95% CI=[-0.532313, +0.100151] | P(model_1 better)=0.1057 | uncertain / overlaps zero
+Logistic Regression vs Neural Network | brier_score | diff=-0.010509 | 95% CI=[-0.095482, +0.070693] | P(model_1 better)=0.4088 | uncertain / overlaps zero
+Random Forest vs Neural Network | accuracy | diff=+0.060606 | 95% CI=[-0.090909, +0.212121] | P(model_1 better)=0.7558 | uncertain / overlaps zero
+Random Forest vs Neural Network | f1 | diff=+0.022727 | 95% CI=[-0.106061, +0.151779] | P(model_1 better)=0.6317 | uncertain / overlaps zero
+Random Forest vs Neural Network | roc_auc | diff=+0.108135 | 95% CI=[-0.045657, +0.255437] | P(model_1 better)=0.9194 | uncertain / overlaps zero
+Random Forest vs Neural Network | log_loss | diff=+0.097324 | 95% CI=[-0.048649, +0.239459] | P(model_1 better)=0.9056 | uncertain / overlaps zero
+Random Forest vs Neural Network | brier_score | diff=+0.043307 | 95% CI=[-0.015743, +0.102528] | P(model_1 better)=0.9225 | uncertain / overlaps zero
+
+INTERPRETATION NOTE
+
+These bootstrap intervals quantify sampling uncertainty in the observed 66-series out-of-sample evaluation.
+They should not be interpreted as proving performance on every future Rocket League event.
+The paired comparisons are particularly useful because all three models were evaluated on the exact same series.
