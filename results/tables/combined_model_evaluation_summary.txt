@@ -1,0 +1,41 @@
+FINAL MODEL COMPARISON
+==============================================================================
+
+POOLED OUT-OF-SAMPLE METRICS
+              model      scope  n  accuracy  precision   recall       f1  roc_auc  log_loss  brier_score  tn  fp  fn  tp
+Logistic Regression Pooled OOS 66  0.681818   0.818182 0.642857 0.720000 0.781746  0.868689     0.247488  18   6  15  27
+      Random Forest Pooled OOS 66  0.696970   0.789474 0.714286 0.750000 0.751984  0.572102     0.193672  16   8  12  30
+     Neural Network Pooled OOS 66  0.636364   0.695652 0.761905 0.727273 0.643849  0.669425     0.236979  10  14  10  32
+
+ERROR OVERLAP
+ number_of_models_wrong  series_count  percentage_of_oos_series
+                      0            29                 43.939394
+                      1            16                 24.242424
+                      2            14                 21.212121
+                      3             7                 10.606061
+
+Series all three models got wrong: 7
+
+RANKING BY ACCURACY
+              model  accuracy
+      Random Forest  0.696970
+Logistic Regression  0.681818
+     Neural Network  0.636364
+
+RANKING BY ROC-AUC
+              model  roc_auc
+Logistic Regression 0.781746
+      Random Forest 0.751984
+     Neural Network 0.643849
+
+RANKING BY LOG LOSS
+              model  log_loss
+      Random Forest  0.572102
+     Neural Network  0.669425
+Logistic Regression  0.868689
+
+RANKING BY BRIER SCORE
+              model  brier_score
+      Random Forest     0.193672
+     Neural Network     0.236979
+Logistic Regression     0.247488

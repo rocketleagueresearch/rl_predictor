@@ -1,0 +1,57 @@
+NEURAL NETWORK TEMPORAL MODEL
+========================================================================
+Rows: 99
+Predictor features: 61
+
+SETTINGS
+  hidden_layer_sizes: (8,)
+  activation: relu
+  solver: adam
+  alpha: 0.01
+  batch_size: auto
+  learning_rate_init: 0.001
+  max_iter: 3000
+  shuffle: True
+  random_state: 42
+  early_stopping: True
+  validation_fraction: 0.2
+  n_iter_no_change: 40
+  tol: 0.0001
+
+Fold 1: Open 1 -> Open 2
+  Train n: 33
+  Test n: 33
+  Iterations: 80
+  Final training loss: 0.2686
+  Best validation score: 0.8571
+  Accuracy: 0.6364
+  Precision: 0.6500
+  Recall: 0.7222
+  F1: 0.6842
+  ROC-AUC: 0.6185
+  Log loss: 0.7606
+  Brier score: 0.2676
+
+Fold 2: Open 1+2 -> Open 3
+  Train n: 66
+  Test n: 33
+  Iterations: 63
+  Final training loss: 0.4427
+  Best validation score: 0.6429
+  Accuracy: 0.6364
+  Precision: 0.7308
+  Recall: 0.7917
+  F1: 0.7600
+  ROC-AUC: 0.6157
+  Log loss: 0.5783
+  Brier score: 0.2063
+
+POOLED OOS: OPEN 2 + OPEN 3
+  n: 66
+  Accuracy: 0.6364
+  Precision: 0.6957
+  Recall: 0.7619
+  F1: 0.7273
+  ROC-AUC: 0.6438
+  Log loss: 0.6694
+  Brier score: 0.2370
